@@ -22,7 +22,7 @@ Windows może ostrzec, że plik pochodzi z internetu (SmartScreen). Kliknij
 
 ## Instalacja
 
-Proces krok po kroku w wiki: [Instalacja v1.0](https://github.com/palin/mayday-conflict-earth-hd/wiki/Instalacja)
+Proces krok po kroku w wiki: [Instalacja](https://github.com/palin/mayday-conflict-earth-hd/wiki/Instalacja)
 
 ## Zmiany w 1.0.1
 
