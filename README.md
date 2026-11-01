@@ -4,6 +4,8 @@
 
 ## Co to jest?
 
+[English summary below](#english)
+
 **Mayday HD 1.0.1 by palin** – nieoficjalny patch fanowski do polskiej wersji gry
 **Mayday: Conflict Earth (1.1p)**, który pozwala grać na Windows 10 i 11 w 1920×1080,
 z płynnym obrazem i kilkoma poprawkami rozgrywki.
@@ -110,7 +112,10 @@ niezwiązany z właścicielami praw do gry.
 ## English
 
 **Mayday HD 1.0.1 by palin** is an unofficial fan patch for the Polish release of
-*Mayday: Conflict Earth* (version 1.1p) on Windows 10/11:
+*Mayday: Conflict Earth* (version 1.1p) on Windows 10/11. 
+The patch will work only on the Polish version of the game. If you'd like to try it on a different version, like English, German or other, I'd need to create a separate patch for it. Please raise an issue at the top and let me know!
+
+Changes in 1.0.1:
 - 1920×1080 by default, with the frame rate matching the monitor (e.g. 144 Hz) and unchanged game speed
 - smooth map scrolling
 - minimap improvements with an accurate view frame
