@@ -1,0 +1,7 @@
+# builds and game files never go into the repository
+*.exe
+!patcher/ddraw/cnc-ddraw config.exe
+*.zip
+*.art
+*.dmp
+MaydayHD_backup/
