@@ -100,6 +100,14 @@ go build -buildvcs=false -trimpath -ldflags "-H=windowsgui -s -w" -o MaydayHD_1.
 
 `go test ./...` uruchamia testy silnika patcha; testy wymagające plików gry są pomijane, jeśli ich nie ma.
 
+## Buy me a coffee!
+
+Jeśli masz ochotę docenić moją pracę nad patchem, postaw mi kawę:
+
+[<img width="132" height="67" alt="logotyp-pionowy-roz" src="https://github.com/user-attachments/assets/f200af0b-629a-4957-a5a4-a4cb346e9e51" />](https://buycoffee.to/palin)
+
+[Postaw mi kawę / Buy me a coffee](https://buycoffee.to/palin)
+
 ## Licencja
 
 Kod patchera i źródła poprawek: [MIT](LICENSE).
