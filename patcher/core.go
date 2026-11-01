@@ -42,13 +42,15 @@ var (
 )
 
 const (
-	Version  = "1.0"
+	Version  = "1.0.1"
 	AppTitle = "Mayday HD " + Version + " by palin"
 	AppHead  = "Mayday HD " + Version + " dla Mayday: Conflict Earth PL (1.1p)"
 )
 
 // Changelog shown in the patcher window ("" starts a new heading line with "#").
 var Changelog = []string{
+	"#Zmiany w 1.0.1",
+	"Naprawione klawisze w grze przy odświeżaniu powyżej 60 Hz: pauza (ESC), cele misji (M), opcje (O), kapitulacja, grupy bojowe (CTRL+cyfra) i tryby walki (F1–F4)",
 	"#Grafika",
 	"Rozdzielczość 1920×1080 - ustawiona jako domyślna (zastępuje 1024×768)",
 	"Płynniejszy obraz - zgodny z odświeżaniem monitora- np. 144Hz (prędkość gry bez zmian)",
@@ -93,6 +95,10 @@ func (st *FileState) IsComplete() bool {
 const BackupDir = "MaydayHD_backup"
 
 var groupSpans = map[string][]Span{}
+
+// legacySpans: changes made by older releases that no current group produces (only Mayday.exe);
+// used to recognise those files and rebuild the original from them.
+var legacySpans = map[string][]Span{}
 
 var Groups = []Group{
 	{"selection", ExeSpec, "Rozgrywka", "Lepsze zaznaczanie ramką (jednostka zaznacza się, gdy ramka jej dotknie)", nil},
@@ -206,6 +212,13 @@ func Analyze(dir string, spec *FileSpec) *FileState {
 			for p, b := range origAt {
 				orig[p] = b
 			}
+			if spec == ExeSpec {
+				for _, ls := range legacySpans {
+					for _, sp := range ls {
+						copy(orig[sp.Off:], sp.Orig)
+					}
+				}
+			}
 			if shaHex(orig) == spec.SHA {
 				for mask := 0; mask < 1<<len(gs); mask++ {
 					want := map[string]bool{}
@@ -237,11 +250,17 @@ func Analyze(dir string, spec *FileSpec) *FileState {
 						break
 					}
 				}
+				if !st.Known {
+					st.Original = orig // an older release: the original is rebuilt, no backup needed
+				}
 			}
 		}
 	}
 	if !st.Known {
 		st.On = map[string]bool{}
+		if st.Original != nil {
+			return st
+		}
 		if b, err := os.ReadFile(filepath.Join(dir, BackupDir, spec.Name)); err == nil && shaHex(b) == spec.SHA {
 			st.Original = b
 			st.FromBackup = true

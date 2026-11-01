@@ -99,8 +99,8 @@ func TestAllEqualsV11(t *testing.T) {
 	for _, g := range Groups {
 		all[g.ID] = true
 	}
-	if !bytes.Equal(Build(orig, ExeSpec, all), load(t, "../Mayday_v15.exe")) {
-		t.Fatal("all fixes != v15")
+	if !bytes.Equal(Build(orig, ExeSpec, all), load(t, "../Mayday_v16.exe")) {
+		t.Fatal("all fixes != v16 (1.0.1)")
 	}
 	all["hz"] = false
 	if !bytes.Equal(Build(orig, ExeSpec, all), load(t, "../Mayday_v14h.exe")) {
@@ -125,10 +125,25 @@ func TestAllEqualsV11(t *testing.T) {
 	if !st.Known || len(st.On) != 10 {
 		t.Fatalf("v11 not recognised: %v %v", st.Known, st.On)
 	}
-	d = setup(t, load(t, "../Mayday_v15.exe"))
+	d = setup(t, load(t, "../Mayday_v16.exe"))
 	st = Analyze(d, ExeSpec)
 	if !st.Known || len(st.On) != 11 || !st.IsComplete() {
-		t.Fatalf("v15 not recognised as complete: %v %v", st.Known, st.On)
+		t.Fatalf("v16 not recognised as complete: %v %v", st.Known, st.On)
+	}
+	// release 1.0 (v15): an older version, original rebuilt without a backup, update gives v16
+	d = setup(t, load(t, "../Mayday_v15.exe"))
+	st = Analyze(d, ExeSpec)
+	if st.Known || st.FromBackup || !bytes.Equal(st.Original, orig) {
+		t.Fatalf("1.0 exe: known=%v backup=%v original ok=%v", st.Known, st.FromBackup, bytes.Equal(st.Original, orig))
+	}
+	if _, err := ApplyFile(d, st, AllFixes()); err != nil {
+		t.Fatal(err)
+	}
+	if !bytes.Equal(load(t, filepath.Join(d, "Mayday.exe")), load(t, "../Mayday_v16.exe")) {
+		t.Fatal("update 1.0 -> 1.0.1 != v16")
+	}
+	if !bytes.Equal(load(t, filepath.Join(d, BackupDir, "Mayday.exe")), orig) {
+		t.Fatal("backup after update is not the original")
 	}
 	d = setup(t, load(t, "../Mayday_v14h.exe"))
 	if st = Analyze(d, ExeSpec); !st.Known || st.IsComplete() {

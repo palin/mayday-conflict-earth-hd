@@ -28,7 +28,12 @@ STAGES = [  # (group id, previous build, new build); "orig" = the original exe
     ("terminal", "v11", "v12"),
     ("fps60", "v12", "v13"),
     ("smooth", "v13", "v14h"),
-    ("hz", "v14h", "v15"),
+    ("hz", "v14h", "v16"),
+]
+# Byte changes of older releases that the current groups no longer produce. The patcher only
+# uses them to recognise such files and rebuild the original (update without a backup).
+LEGACY = [
+    ("hz-1.0", "v14h", "v15"),   # 1.0: 144 Hz via a multimedia timer (replaced in 1.0.1)
 ]
 GAP = 16  # merge runs separated by <= GAP bytes that are equal in orig, old and new
 
@@ -52,9 +57,9 @@ def spans(orig, a, b):
     return m
 
 
-def group_go(name, orig, b, sp):
+def group_go(name, orig, b, sp, var="groupSpans"):
     body = "".join(f'\t\t{{Off: 0x{o:x}, Orig: hx("{orig[o:e].hex()}"), New: hx("{b[o:e].hex()}")}},\n' for o, e in sp)
-    return f'\tgroupSpans["{name}"] = []Span{{\n{body}\t}}\n'
+    return f'\t{var}["{name}"] = []Span{{\n{body}\t}}\n'
 
 
 def main():
@@ -66,6 +71,7 @@ def main():
     exe_ids = {s[0] for s in STAGES}
     parts = [group_go(g, orig, load(n), spans(orig, load(p), load(n))) for g, p, n in STAGES]
     parts += [txt for name, txt in kept.items() if name not in exe_ids]
+    parts += [group_go(g, orig, load(n), spans(orig, load(p), load(n)), "legacySpans") for g, p, n in LEGACY]
     head = f"// Code generated from the verified builds (orig, {STAGES[0][2]} ... {STAGES[-1][2]}). DO NOT EDIT.\n\npackage main\n\nfunc init() {{\n"
     open(out, "w", encoding="utf-8").write(head + "".join(parts) + "}\n")
     print("written", out)

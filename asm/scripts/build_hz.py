@@ -15,6 +15,7 @@ d[o(0x42a4a0):o(0x42a4a0)+len(b)]=b
 def put(a,old,new):
     old=bytes.fromhex(old); assert d[o(a):o(a)+len(old)]==old,(hex(a),d[o(a):o(a)+len(old)].hex()); assert len(new)==len(old); d[o(a):o(a)+len(new)]=new
 rel=lambda a,t:((t-(a+5))&0xffffffff).to_bytes(4,'little')
-put(0x476258,'e8d940fbff',b'\xe8'+rel(0x476258,sym['hz_tick']))
-put(0x4450ed,'536a0068cc0a6400',b'\xe9'+rel(0x4450ed,sym['ov_hook'])+b'\x90'*3)
+put(0x476258,'e8d940fbff',b'\xe8'+rel(0x476258,sym['hz_tick']))          # WM_TIMER -> hz_tick
+put(0x476cd9,'e859490100',b'\xe8'+rel(0x476cd9,sym['hz_getmsg']))        # main loop GetMessageA
+put(0x48b58f,'ff250c666400',b'\xe9'+rel(0x48b58f,sym['kill_hook'])+b'\x90') # KillTimer thunk
 open(dst,'wb').write(d); print('built',dst)
