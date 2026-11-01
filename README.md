@@ -1,5 +1,9 @@
 # Mayday HD
 
+<img width="1920" height="1080" alt="Zrzut ekranu (2)" src="https://github.com/user-attachments/assets/f7d9a624-a963-4512-9873-caae58f2ec2e" />
+
+## Co to jest?
+
 **Mayday HD 1.0 by palin** – nieoficjalny patch fanowski do polskiej wersji gry
 **Mayday: Conflict Earth (1.1p)**, który pozwala grać na Windows 10 i 11 w 1920×1080,
 z płynnym obrazem i kilkoma poprawkami rozgrywki.
