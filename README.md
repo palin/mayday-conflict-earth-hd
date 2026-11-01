@@ -16,6 +16,10 @@ Gotowy patcher (`MaydayHD_1.0.zip`) znajdziesz w zakładce **[Releases](../../re
 Windows może ostrzec, że plik pochodzi z internetu (SmartScreen). Kliknij
 **Więcej informacji → Uruchom mimo to**. Sumę kontrolną pliku podaje `SHA256.txt` w archiwum.
 
+## Instalacja
+
+Proces krok po kroku w wiki: [Instalacja v1.0](https://github.com/palin/mayday-conflict-earth-hd/wiki/Instalacja)
+
 ## Zawartość patcha 1.0
 
 **Grafika**
