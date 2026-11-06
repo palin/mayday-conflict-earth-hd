@@ -29,6 +29,11 @@ STAGES = [  # (group id, previous build, new build); "orig" = the original exe
     ("fps60", "v12", "v13"),
     ("smooth", "v13", "v14h"),
     ("hz", "v14h", "v16"),
+    ("filescroll", "v16", "v18"),
+    ("dblclick", "v18", "v19"),
+    ("videoguard", "v19", "v20"),
+    ("boxvideo", "v20", "v21"),
+    ("savesort", "v21", "v22"),
 ]
 # Byte changes of older releases that the current groups no longer produce. The patcher only
 # uses them to recognise such files and rebuild the original (update without a backup).

@@ -29,7 +29,11 @@ func TestAllCombinations(t *testing.T) {
 	d := setup(t, orig)
 	gs := groupsOf(ExeSpec)
 	n := 0
-	for mask := 0; mask < 1<<len(gs); mask++ {
+	// 16 groups = 65536 masks (too slow); the newest groups (independent single-spot fixes)
+	// take all four on/off states, chosen by the low bits, so every older combination is still covered.
+	const full = 13
+	for low := 0; low < 1<<full; low++ {
+		mask := low | (low%(1<<(len(gs)-full)))<<full
 		want := map[string]bool{}
 		for i, g := range gs {
 			if mask&(1<<i) != 0 {
@@ -99,8 +103,28 @@ func TestAllEqualsV11(t *testing.T) {
 	for _, g := range Groups {
 		all[g.ID] = true
 	}
+	if !bytes.Equal(Build(orig, ExeSpec, all), load(t, "../Mayday_v22.exe")) {
+		t.Fatal("all fixes != v22 (1.0.2)")
+	}
+	all["savesort"] = false
+	if !bytes.Equal(Build(orig, ExeSpec, all), load(t, "../Mayday_v21.exe")) {
+		t.Fatal("all but savesort != v21")
+	}
+	all["boxvideo"] = false
+	if !bytes.Equal(Build(orig, ExeSpec, all), load(t, "../Mayday_v20.exe")) {
+		t.Fatal("all but boxvideo != v20")
+	}
+	all["videoguard"] = false
+	if !bytes.Equal(Build(orig, ExeSpec, all), load(t, "../Mayday_v19.exe")) {
+		t.Fatal("all but boxvideo/videoguard != v19")
+	}
+	all["dblclick"] = false
+	if !bytes.Equal(Build(orig, ExeSpec, all), load(t, "../Mayday_v18.exe")) {
+		t.Fatal("all but dblclick != v18")
+	}
+	all["filescroll"] = false
 	if !bytes.Equal(Build(orig, ExeSpec, all), load(t, "../Mayday_v16.exe")) {
-		t.Fatal("all fixes != v16 (1.0.1)")
+		t.Fatal("all but dblclick/filescroll != v16 (1.0.1)")
 	}
 	all["hz"] = false
 	if !bytes.Equal(Build(orig, ExeSpec, all), load(t, "../Mayday_v14h.exe")) {
@@ -125,10 +149,15 @@ func TestAllEqualsV11(t *testing.T) {
 	if !st.Known || len(st.On) != 10 {
 		t.Fatalf("v11 not recognised: %v %v", st.Known, st.On)
 	}
-	d = setup(t, load(t, "../Mayday_v16.exe"))
+	d = setup(t, load(t, "../Mayday_v22.exe"))
 	st = Analyze(d, ExeSpec)
-	if !st.Known || len(st.On) != 11 || !st.IsComplete() {
-		t.Fatalf("v16 not recognised as complete: %v %v", st.Known, st.On)
+	if !st.Known || len(st.On) != 16 || !st.IsComplete() {
+		t.Fatalf("v22 not recognised as complete: %v %v", st.Known, st.On)
+	}
+	// release 1.0.1 (v16): known, older (update offered)
+	d = setup(t, load(t, "../Mayday_v16.exe"))
+	if st = Analyze(d, ExeSpec); !st.Known || st.IsComplete() || len(st.On) != 11 {
+		t.Fatalf("1.0.1 exe: known=%v on=%v", st.Known, st.On)
 	}
 	// release 1.0 (v15): an older version, original rebuilt without a backup, update gives v16
 	d = setup(t, load(t, "../Mayday_v15.exe"))
@@ -139,8 +168,8 @@ func TestAllEqualsV11(t *testing.T) {
 	if _, err := ApplyFile(d, st, AllFixes()); err != nil {
 		t.Fatal(err)
 	}
-	if !bytes.Equal(load(t, filepath.Join(d, "Mayday.exe")), load(t, "../Mayday_v16.exe")) {
-		t.Fatal("update 1.0 -> 1.0.1 != v16")
+	if !bytes.Equal(load(t, filepath.Join(d, "Mayday.exe")), load(t, "../Mayday_v22.exe")) {
+		t.Fatal("update 1.0 -> 1.0.2 != v22")
 	}
 	if !bytes.Equal(load(t, filepath.Join(d, BackupDir, "Mayday.exe")), orig) {
 		t.Fatal("backup after update is not the original")

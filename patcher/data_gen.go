@@ -1,4 +1,4 @@
-// Code generated from the verified builds (orig, v2 ... v16). DO NOT EDIT.
+// Code generated from the verified builds (orig, v2 ... v22). DO NOT EDIT.
 
 package main
 
@@ -84,6 +84,33 @@ func init() {
 		{Off: 0x75859, Orig: hx("3425fd"), New: hx("d3cffc")},
 		{Off: 0x762da, Orig: hx("59490100"), New: hx("f6b4fcff")},
 		{Off: 0x8ab8f, Orig: hx("ff250c666400"), New: hx("e93d6dfbff90")},
+	}
+	groupSpans["filescroll"] = []Span{
+		{Off: 0xbd9a, Orig: hx("a328a45e"), New: hx("e86d5b03")},
+		{Off: 0xc2c8, Orig: hx("a328a45e"), New: hx("e83f5603")},
+		{Off: 0xc377, Orig: hx("a328a45e"), New: hx("e8905503")},
+		{Off: 0x10bc2, Orig: hx("891530a45e00"), New: hx("e8520d030090")},
+		{Off: 0x10e1d, Orig: hx("ff0d30a45e00"), New: hx("e8ce0a030090")},
+		{Off: 0x10e6a, Orig: hx("ff0530a45e00"), New: hx("e88f0a030090")},
+		{Off: 0x1114d, Orig: hx("891530a45e00"), New: hx("e8c707030090")},
+		{Off: 0x1f05d, Orig: hx("890d28a45e00"), New: hx("e8b128020090")},
+		{Off: 0x418f0, Orig: hx("06b90f000000f3a5ba3e0000002bfa03fb83c602b910000000f3a5ba400000002bfa03fbb910000000f3a5ba3e0000002bfa03fb83c602b90f000000f3a5ba3a0000002bfa03fb83c606b90e000000f3a5ba360000002bfa03fb83c60ab90d000000f3a5ba320000002bfa03fb83c60eb90c000000f3a5ba2e0000002bfa03fb83"), New: hx("e83e0000007506ff0d30a45e00c3e8300000007506ff0530a45e00c3a328a45e00eb06890d28a45e0050a128a45e0003052ca45e0083e80a7d0231c0a330a45e0058c3505152e85c90040089c22b15a06d6400a3a06d640083fa64770f89c22b15a46d6400781383c07deb050590010000a3a46d640031c0eb0383c8015a5958c3")},
+	}
+	groupSpans["dblclick"] = []Span{
+		{Off: 0x760ef, Orig: hx("0b"), New: hx("03")},
+	}
+	groupSpans["videoguard"] = []Span{
+		{Off: 0x41980, Orig: hx("fa03fb83c616a5a5a5a5a5a5a5a5a5a5ba260000002bfa03fb83c61aa5a5a5a5a5a5a5a5a5ba220000002bfa03fb83c6"), New: hx("8b8eeb000000833df4716300007412a10072630085c074093b087305e99dd40000c786eb000000ffffffffe991da0000")},
+		{Off: 0x4ee38, Orig: hx("8b8eeb000000"), New: hx("e9432bffff90")},
+	}
+	groupSpans["boxvideo"] = []Span{
+		{Off: 0x30831, Orig: hx("c1e006"), New: hx("eb1a90")},
+	}
+	groupSpans["savesort"] = []Span{
+		{Off: 0x16a7f, Orig: hx("fdac06"), New: hx("2daf02")},
+		{Off: 0x16abf, Orig: hx("bdac06"), New: hx("edae02")},
+		{Off: 0x16b21, Orig: hx("3b7541"), New: hx("d12344")},
+		{Off: 0x419b0, Orig: hx("1ea5a5a5a5a5a5a5a5ba1e0000002bfa03fb83c622a5a5a5a5a5a5a5ba1a0000002bfa03fb83c626a5a5a5a5a5a5ba160000002bfa03fb83c62aa5a5a5a5a5ba120000002bfa03fb83c62ea5a5a5a5ba0e0000002bfa03fb"), New: hx("8b4424048b0db4d94a008988f00100008b0db8d94a008988f4010000e9affd03008b4424048b4c24088b90f40100003b91f4010000721777198b90f00100003b91f001000072077709e93d51fdff83c8ffc3b801000000c3")},
 	}
 	groupSpans["panel"] = []Span{
 		{Off: 0x15ced5d, Orig: hx("abffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabffabff"), New: hx("6060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060606060")},

@@ -1,13 +1,20 @@
-MAYDAY HD 1.0.1 by palin
+MAYDAY HD 1.0.2 by palin
 dla Mayday: Conflict Earth PL (1.1p)
 =======================================
 
 [PL]
 
+Zmiany w 1.0.2
+• Lista zapisów (ODCZYT / ZAPIS): strzałki przewijają o jedną pozycję na kliknięcie, przytrzymanie przewija płynnie
+• Lista zapisów otwiera się na końcu – od razu widać najnowsze zapisy
+• Lista zapisów posortowana według daty – najnowszy zapis jest zawsze na dole
+• Szybkie kliknięcia nie są już gubione (np. strzałki w monitorze badań, wydawanie rozkazów)
+• Panel WIDEO pokazuje jednostkę latającą także po zaznaczeniu ramką (wcześniej pusty podgląd, a czasem nagłe zamknięcie gry)
+
 Zmiany w 1.0.1
 • Naprawione klawisze w grze przy odświeżaniu powyżej 60 Hz: pauza (ESC), cele misji (M), opcje (O), kapitulacja, grupy bojowe (CTRL+cyfra) i tryby walki (F1–F4)
 
-Zawartość patcha 1.0.1:
+Zawartość patcha 1.0.2:
 
 Grafika
 • Rozdzielczość 1920×1080 - ustawiona jako domyślna (zastępuje 1024×768)
@@ -38,12 +45,12 @@ Jak zainstalować
    z płytą (np. F:) i uruchom .\SETUP.EXE (nie MDStart.exe). Wybierz folder
    poza „Program Files”, np. C:\Gry\Mayday. Instalację Power!Video i DirectX 5
    możesz anulować.
-2. Zamknij grę. Uruchom MaydayHD_1.0.1.exe - najlepiej z folderu gry, wtedy sam
+2. Zamknij grę. Uruchom MaydayHD_1.0.2.exe - najlepiej z folderu gry, wtedy sam
    go znajdzie; inaczej wskaż folder przyciskiem „Wybierz…”.
 3. Jeśli chcesz intro, zaznacz „Odtwarzaj intro przy starcie”.
 4. Kliknij „Zainstaluj patch”.
 
-Masz już wersję 1.0? Uruchom MaydayHD_1.0.1.exe i kliknij „Zaktualizuj do 1.0.1”.
+Masz już wersję 1.0 lub 1.0.1? Uruchom MaydayHD_1.0.2.exe i kliknij „Zaktualizuj do 1.0.2”.
 
 Patcher można uruchomić ponownie w każdej chwili: zmienić ustawienie intro albo
 przywrócić oryginalne pliki („Przywróć oryginał”). Nowsza wersja patcha
@@ -71,13 +78,13 @@ Wskazówki
 
 [EN]
 
-Mayday HD 1.0.1 by palin - unofficial fan patch for the Polish Mayday: Conflict
+Mayday HD 1.0.2 by palin - unofficial fan patch for the Polish Mayday: Conflict
 Earth 1.1p on Windows 10/11: 1920x1080 by default, frame rate matching the
 monitor (e.g. 144 Hz) with unchanged game speed, smooth map scrolling, minimap
 improvements with an accurate view frame, better unit selection, calmer
 terminal scrolling, cnc-ddraw (required on Windows 10/11), sound fix, the Power!Video codec for
 the intro and briefing videos (extracted from the player's own CD), intro off
-by default. Run MaydayHD_1.0.1.exe, choose the game folder and click
+by default. Run MaydayHD_1.0.2.exe, choose the game folder and click
 "Zainstaluj patch" (Install). "Przywróć oryginał" (Restore original) puts the
 original files back; they are kept in MaydayHD_backup. Only the Polish 1.1p
 files are accepted. The game CD image is still required.

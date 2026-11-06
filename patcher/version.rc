@@ -1,7 +1,7 @@
 
 1 VERSIONINFO
-FILEVERSION 1,0,1,0
-PRODUCTVERSION 1,0,1,0
+FILEVERSION 1,0,2,0
+PRODUCTVERSION 1,0,2,0
 FILEOS 0x40004
 FILETYPE 0x1
 BEGIN
@@ -10,12 +10,12 @@ BEGIN
     BLOCK "041504B0"
     BEGIN
       VALUE "CompanyName", "palin"
-      VALUE "FileDescription", "Mayday HD 1.0.1 by palin"
-      VALUE "FileVersion", "1.0.1"
+      VALUE "FileDescription", "Mayday HD 1.0.2 by palin"
+      VALUE "FileVersion", "1.0.2"
       VALUE "InternalName", "MaydayHD"
-      VALUE "OriginalFilename", "MaydayHD_1.0.1.exe"
+      VALUE "OriginalFilename", "MaydayHD_1.0.2.exe"
       VALUE "ProductName", "Mayday HD"
-      VALUE "ProductVersion", "1.0.1"
+      VALUE "ProductVersion", "1.0.2"
       VALUE "LegalCopyright", "Nieoficjalny patch fanowski. Mayday: Conflict Earth (c) jego właściciele."
     END
   END

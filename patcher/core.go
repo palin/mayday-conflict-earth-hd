@@ -42,13 +42,19 @@ var (
 )
 
 const (
-	Version  = "1.0.1"
+	Version  = "1.0.2"
 	AppTitle = "Mayday HD " + Version + " by palin"
 	AppHead  = "Mayday HD " + Version + " dla Mayday: Conflict Earth PL (1.1p)"
 )
 
 // Changelog shown in the patcher window ("" starts a new heading line with "#").
 var Changelog = []string{
+	"#Zmiany w 1.0.2",
+	"Lista zapisów (ODCZYT / ZAPIS): strzałki przewijają o jedną pozycję na kliknięcie, przytrzymanie przewija płynnie",
+	"Lista zapisów otwiera się na końcu – od razu widać najnowsze zapisy",
+	"Lista zapisów posortowana według daty – najnowszy zapis jest zawsze na dole",
+	"Szybkie kliknięcia nie są już gubione (np. strzałki w monitorze badań, wydawanie rozkazów)",
+	"Panel WIDEO pokazuje jednostkę latającą także po zaznaczeniu ramką (wcześniej pusty podgląd, a czasem nagłe zamknięcie gry)",
 	"#Zmiany w 1.0.1",
 	"Naprawione klawisze w grze przy odświeżaniu powyżej 60 Hz: pauza (ESC), cele misji (M), opcje (O), kapitulacja, grupy bojowe (CTRL+cyfra) i tryby walki (F1–F4)",
 	"#Grafika",
@@ -113,6 +119,11 @@ var Groups = []Group{
 	{"smooth", ExeSpec, "Grafika", "Płynne przewijanie mapy (wymaga Full HD, 60 klatek/s i dokładnej ramki)", []string{"fullhd", "fps60", "frame"}},
 	{"hz", ExeSpec, "Grafika", "Odświeżanie jak monitor, np. 144 Hz zamiast 60 (wymaga 60 klatek/s)", []string{"fps60"}},
 	{"sound", ExeSpec, "Dźwięk", "Naprawa „brak dźwięku po starcie” (Windows 10/11)", nil},
+	{"filescroll", ExeSpec, "Menu", "Lista zapisów: przewijanie strzałkami i start od najnowszych", nil},
+	{"dblclick", ExeSpec, "Menu", "Szybkie kliknięcia nie są gubione", nil},
+	{"videoguard", ExeSpec, "Rozgrywka", "Panel WIDEO: brak zamknięcia gry przy błędnej jednostce", nil},
+	{"boxvideo", ExeSpec, "Rozgrywka", "Panel WIDEO: podgląd jednostki latającej po zaznaczeniu ramką", nil},
+	{"savesort", ExeSpec, "Menu", "Lista zapisów według daty (najnowszy na dole)", nil},
 }
 
 func hx(s string) []byte {
