@@ -17,7 +17,7 @@ Każda wersja patchera rozpoznaje starsze i proponuje aktualizację („Zaktuali
 - Szybkie kliknięcia nie są już gubione (np. strzałki w monitorze badań, wydawanie rozkazów)
 
 ### Rozgrywka
-- Panel WIDEO pokazuje jednostkę latającą także po zaznaczeniu ramką (wcześniej pusty podgląd, a dosyć często nagłe zamknięcie gry)
+- Panel WIDEO pokazuje jednostkę latającą także po zaznaczeniu ramką (wcześniej pusty podgląd, a czasem nagłe zamknięcie gry)
 
 **EN:** Save list arrows scroll one line per click (smooth when held); the save list is sorted by
 date and opens at the newest saves; fast clicks are no longer lost; the VIDEO panel shows a flying

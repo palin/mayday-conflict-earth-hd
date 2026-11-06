@@ -1,6 +1,6 @@
 # Mayday: Conflict Earth HD Patch
 
-<img width="1920" height="1080" alt="Mayday: Conflict Eart gameplay screenshot" src="https://github.com/user-attachments/assets/f7d9a624-a963-4512-9873-caae58f2ec2e" />
+<img width="1920" height="1080" alt="Mayday: Conflict Earth gameplay screenshot" src="https://github.com/user-attachments/assets/f7d9a624-a963-4512-9873-caae58f2ec2e" />
 
 ## Co to jest?
 
@@ -122,13 +122,12 @@ niezwiązany z właścicielami praw do gry.
 
 ## English
 
-**Mayday HD 1.0.2 by palin** is an unofficial fan patch for the Polish release of
+**Mayday HD by palin** is an unofficial fan patch for the Polish release of
 *Mayday: Conflict Earth* (version 1.1p) on Windows 10/11. 
 The patch will work only on the Polish version of the game. If you'd like to try it on a different version, like English, German or other, I'd need to create a separate patch for it. Please raise an issue at the top and let me know!
 
-New in 1.0.2: the save list arrows scroll one line per click, the save list is sorted by date and opens at the newest saves, fast clicks are no longer lost, and the VIDEO panel shows a flying unit after a box selection (before: blank thumbnail, sometimes a crash).
+Included in the patch:
 
-Changes in 1.0.1:
 - 1920×1080 by default, with the frame rate matching the monitor (e.g. 144 Hz) and unchanged game speed
 - smooth map scrolling
 - minimap improvements with an accurate view frame
@@ -136,6 +135,10 @@ Changes in 1.0.1:
 - cnc-ddraw (required on Windows 10/11) and a sound fix
 - the Power!Video codec for the intro and briefing videos, extracted from the player's own CD
 - intro off by default
+- the save list arrows scroll one line per click 
+- the save list is sorted by date and opens at the newest saves 
+- fast clicks are no longer lost 
+- the VIDEO panel shows a flying unit after a box selection (before: blank thumbnail, sometimes a crash)
 
 The repository contains **no game files**. You need the original Polish CD or a full image of it.
 Download the patcher from **[Releases](../../releases)**, run it from the game folder with the CD mounted
